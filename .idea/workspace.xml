@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72359190-b45b-42f6-a565-183aae8f1d9f" name="Changes" comment="add tests">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/RequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/dto/ResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exception/IllegalCommandException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/redis/RedisServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/redis/RedisServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/RedisServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +198,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667746976743</updated>
-      <workItem from="1667746978191" duration="21191000" />
+      <workItem from="1667746978191" duration="21500000" />
     </task>
     <task id="LOCAL-00001" summary="init gradle project">
       <created>1667774645247</created>
@@ -231,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667774704719</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add main server">
+      <created>1667775254027</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667775254027</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +246,7 @@
     <MESSAGE value="add lru cache" />
     <MESSAGE value="add redis server" />
     <MESSAGE value="add tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add tests" />
+    <MESSAGE value="add main server" />
+    <option name="LAST_COMMIT_MESSAGE" value="add main server" />
   </component>
 </project>
