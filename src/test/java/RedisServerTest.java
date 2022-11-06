@@ -23,8 +23,7 @@ public class RedisServerTest {
         redis.put("k3", "v3");
         assert redis.countExistingKeys("k1", "k3", "k4") == 2;
 
-        assert redis.getKeys("k.*").equals(" \n" +
-                "k3\n" +
+        assert redis.getKeys("k[1-2]*").equals(" \n" +
                 "k2\n" +
                 "k1");
 
@@ -40,7 +39,7 @@ public class RedisServerTest {
         redis.setExpire("k6", 2);
         assert redis.get("k6").equals("v6");
         assert (redis.remainingTime("k6") - 2) < 0.1;
-        Thread.sleep(2100);
+        Thread.sleep(2500);
         assert redis.get("k6") == null;
     }
 }
