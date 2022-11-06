@@ -101,6 +101,14 @@ public class RedisServer {
                 .reduce(" ", (k1, k2) -> String.format("%s\n%s", k1, k2));
     }
 
+    public Long remainingTime(String key) {
+        if (!databases.get(dbIdx).containsKey(key))
+            return -2L;
+        if (!expirations.get(dbIdx).containsKey(key))
+            return -1L;
+        return (expirations.get(dbIdx).get(key) - new Date().getTime()) / 1000;
+    }
+
     public int getDbIdx() {
         return dbIdx;
     }

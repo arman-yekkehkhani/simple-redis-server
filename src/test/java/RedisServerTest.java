@@ -39,6 +39,7 @@ public class RedisServerTest {
         redis.put("k6", "v6");
         redis.setExpire("k6", 2);
         assert redis.get("k6").equals("v6");
+        assert (redis.remainingTime("k6") - 2) < 0.1;
         Thread.sleep(2100);
         assert redis.get("k6") == null;
     }
