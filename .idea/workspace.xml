@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72359190-b45b-42f6-a565-183aae8f1d9f" name="Changes" comment="add tests">
+    <list default="true" id="72359190-b45b-42f6-a565-183aae8f1d9f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/redis/BaseAbstractRedisServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/redis/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/write_ahead_log.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cache/LruCache.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/redis/RedisServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/redis/RedisServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/RedisServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/RedisServerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,16 +61,29 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/armanyekkehkhani/Desktop/dev/simpleRedisServer/src/main/java/org/example",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+    "last_opened_file_path": "/Users/armanyekkehkhani/Desktop/dev/simpleRedisServer/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/test/resources" />
       <recent name="$PROJECT_DIR$/src/main/java/org/example" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.RedisServerTest.completeTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="simpleRedisServer.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RedisServerTest.completeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -102,29 +121,6 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;TestLruCache.fetchTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestLruCache.orderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;TestLruCache.orderTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -182,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.RedisServerTest.completeTest" />
         <item itemvalue="Gradle.TestLruCache.fetchTest" />
         <item itemvalue="Gradle.TestLruCache.removeTest" />
         <item itemvalue="Gradle.TestLruCache.updateTest" />
-        <item itemvalue="Gradle.TestLruCache.orderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -198,7 +194,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667746976743</updated>
-      <workItem from="1667746978191" duration="21500000" />
+      <workItem from="1667746978191" duration="22681000" />
+      <workItem from="1667776953340" duration="247000" />
+      <workItem from="1667782714941" duration="10474000" />
     </task>
     <task id="LOCAL-00001" summary="init gradle project">
       <created>1667774645247</created>
@@ -235,7 +233,28 @@
       <option name="project" value="LOCAL" />
       <updated>1667775254027</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add support for remaining time">
+      <created>1667775302184</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667775302184</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add IDE files">
+      <created>1667775316340</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667775316340</updated>
+    </task>
+    <task id="LOCAL-00008" summary="enhance test for getKeys by regex">
+      <created>1667777191831</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667777191831</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +266,25 @@
     <MESSAGE value="add redis server" />
     <MESSAGE value="add tests" />
     <MESSAGE value="add main server" />
-    <option name="LAST_COMMIT_MESSAGE" value="add main server" />
+    <MESSAGE value="add support for remaining time" />
+    <MESSAGE value="add IDE files" />
+    <MESSAGE value="enhance test for getKeys by regex" />
+    <option name="LAST_COMMIT_MESSAGE" value="enhance test for getKeys by regex" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/RedisServerTest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

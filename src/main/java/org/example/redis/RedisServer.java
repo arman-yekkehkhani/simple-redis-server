@@ -2,41 +2,18 @@ package org.example.redis;
 
 import org.example.cache.Cache;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-public class RedisServer {
-
-    private final List<Cache<String, String>> databases;
-    private final List<Map<String, Long>> expirations = Collections.synchronizedList(new ArrayList<>());
-    private int dbIdx;
+public class RedisServer extends BaseAbstractRedisServer {
 
     private RedisServer() {
-        databases = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            databases.add(new Cache<>(3));
-            expirations.add(new ConcurrentHashMap<>());
-        }
-
-        ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
-        ses.scheduleAtFixedRate(() -> {
-            for (int i = 0; i < expirations.size(); i++) {
-                Cache<String, String> db = databases.get(i);
-                Map<String, Long> dbExpirations = expirations.get(i);
-                for (String key : dbExpirations.keySet()) {
-                    if (dbExpirations.get(key) < new Date().getTime()) {
-                        db.remove(key);
-                        dbExpirations.remove(key);
-                    }
-                }
-            }
-        }, 100, 100, TimeUnit.MILLISECONDS);
-
+        super();
     }
 
     private static RedisServer instance;
@@ -47,29 +24,30 @@ public class RedisServer {
         return instance;
     }
 
-    public String put(String key, String value) {
-        if (value == null)
-            throw new IllegalArgumentException("value cannot be null!");
+    @Override
+    String internalPut(String key, String value) {
         return databases.get(dbIdx).put(key, value);
     }
 
-    public String get(String key) {
+    @Override
+    String internalGet(String key) {
         return databases.get(dbIdx).get(key);
     }
 
-    public int delete(String... keys) {
-        int deletedCount = 0;
+    @Override
+    List<String> internalDelete(String... keys) {
+        List<String> deletedKeys = new ArrayList<>();
         for (String key : keys) {
             expirations.get(dbIdx).remove(key);
             if (databases.get(dbIdx).containsKey(key))
-                deletedCount++;
+                deletedKeys.add(key);
             databases.get(dbIdx).remove(key);
         }
-        return deletedCount;
+        return deletedKeys;
     }
 
-    public void setExpire(String key, int seconds) {
-        long expirationTime = new Date().getTime() + seconds * 1000L;
+    @Override
+    void internalSetExpire(String key, long expirationTime) {
         expirations.get(dbIdx).put(key, expirationTime);
     }
 
@@ -81,7 +59,8 @@ public class RedisServer {
         return incrementBy(key, 1L);
     }
 
-    public long incrementBy(String key, Long increment) {
+    @Override
+    long internalIncrementBy(String key, Long increment) {
         Cache<String, String> cache = databases.get(dbIdx);
         if (cache.containsKey(key)) {
             long value = Long.parseLong(cache.get(key));
@@ -93,12 +72,13 @@ public class RedisServer {
         return increment;
     }
 
-    public String getKeys(String regex) {
+    @Override
+    List<String> internalGetKeys(String regex) {
         Pattern pattern = Pattern.compile(regex);
 
         return StreamSupport.stream(databases.get(dbIdx).keys().spliterator(), false)
                 .filter((k) -> pattern.matcher(k).matches())
-                .reduce(" ", (k1, k2) -> String.format("%s\n%s", k1, k2));
+                .collect(Collectors.toList());
     }
 
     public Long remainingTime(String key) {
@@ -107,14 +87,5 @@ public class RedisServer {
         if (!expirations.get(dbIdx).containsKey(key))
             return -1L;
         return (expirations.get(dbIdx).get(key) - new Date().getTime()) / 1000;
-    }
-
-    public int getDbIdx() {
-        return dbIdx;
-    }
-
-    public int setDbIdx(int dbIdx) {
-        this.dbIdx = dbIdx;
-        return this.dbIdx;
     }
 }
