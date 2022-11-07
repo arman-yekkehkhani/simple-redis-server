@@ -21,8 +21,8 @@ public abstract class BaseAbstractRedisServer {
 
     WriteAheadLogger logger = WriteAheadLogger.getInstance();
 
-    final List<Cache<String, String>> databases = Collections.synchronizedList(new ArrayList<>());
-    final List<Map<String, Long>> expirations = Collections.synchronizedList(new ArrayList<>());
+    List<Cache<String, String>> databases = Collections.synchronizedList(new ArrayList<>());
+    List<Map<String, Long>> expirations = Collections.synchronizedList(new ArrayList<>());
     int dbIdx;
 
     public BaseAbstractRedisServer() {
@@ -32,6 +32,8 @@ public abstract class BaseAbstractRedisServer {
     }
 
     private void initDbs() {
+        databases = Collections.synchronizedList(new ArrayList<>());
+        expirations = Collections.synchronizedList(new ArrayList<>());
         for (int i = 0; i < 15; i++) {
             databases.add(new Cache<>(3));
             expirations.add(new ConcurrentHashMap<>());
@@ -150,4 +152,9 @@ public abstract class BaseAbstractRedisServer {
         return this.dbIdx;
     }
 
+    public void clear() {
+        this.dbIdx = 0;
+        initDbs();
+        logger.clear();
+    }
 }

@@ -6,6 +6,7 @@ public class RedisServerTest {
     @Test
     public void completeTest() throws InterruptedException {
         RedisServer redis = RedisServer.getInstance();
+        redis.clear();
 
         assert redis.getDbIdx() == 0;
 

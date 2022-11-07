@@ -3,6 +3,7 @@ package org.example.redis;
 import com.opencsv.CSVWriterBuilder;
 import com.opencsv.ICSVWriter;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.*;
@@ -45,5 +46,16 @@ public class WriteAheadLogger {
         line[4] = expirationTime == null ? "" : String.valueOf(expirationTime);
 
         persistenceQueue.add(line);
+    }
+
+    public void clear() {
+        File file = new File(LOG_PATH);
+        try {
+            file.delete();
+            file.createNewFile();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        persistenceQueue.clear();
     }
 }
