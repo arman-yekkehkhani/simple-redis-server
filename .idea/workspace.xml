@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72359190-b45b-42f6-a565-183aae8f1d9f" name="Changes" comment="">
+    <list default="true" id="72359190-b45b-42f6-a565-183aae8f1d9f" name="Changes" comment="remove basic LruCache.java">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/redis/BaseAbstractRedisServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/redis/Logger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/write_ahead_log.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/cache/LruCache.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/redis/RedisServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/redis/RedisServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/write_ahead_log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/write_ahead_log.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +26,40 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="simpleRedisServer" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="simpleRedisServer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="simpleRedisServer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="simpleRedisServer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build setup" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="simpleRedisServer" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="documentation" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -76,7 +105,7 @@
       <recent name="$PROJECT_DIR$/src/main/java/org/example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.simpleRedisServer [runWithJavaExec]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="simpleRedisServer.main" />
@@ -153,36 +182,34 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestLruCache.updateTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="simpleRedisServer [runWithJavaExec]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;TestLruCache.updateTest&quot;" />
+            <option value="runWithJavaExec" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.simpleRedisServer [runWithJavaExec]" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.RedisServerTest.completeTest" />
         <item itemvalue="Gradle.TestLruCache.fetchTest" />
         <item itemvalue="Gradle.TestLruCache.removeTest" />
-        <item itemvalue="Gradle.TestLruCache.updateTest" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +223,7 @@
       <updated>1667746976743</updated>
       <workItem from="1667746978191" duration="22681000" />
       <workItem from="1667776953340" duration="247000" />
-      <workItem from="1667782714941" duration="10474000" />
+      <workItem from="1667782714941" duration="11446000" />
     </task>
     <task id="LOCAL-00001" summary="init gradle project">
       <created>1667774645247</created>
@@ -254,7 +281,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667777191831</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="remove basic LruCache.java">
+      <created>1667817128174</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667817128175</updated>
+    </task>
+    <task id="LOCAL-00010" summary="make cache persistent using write_ahead_log">
+      <created>1667817354554</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1667817354554</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,16 +310,13 @@
     <MESSAGE value="add support for remaining time" />
     <MESSAGE value="add IDE files" />
     <MESSAGE value="enhance test for getKeys by regex" />
-    <option name="LAST_COMMIT_MESSAGE" value="enhance test for getKeys by regex" />
+    <MESSAGE value="remove basic LruCache.java" />
+    <MESSAGE value="make cache persistent using write_ahead_log" />
+    <option name="LAST_COMMIT_MESSAGE" value="make cache persistent using write_ahead_log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/RedisServerTest.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
           <line>50</line>
