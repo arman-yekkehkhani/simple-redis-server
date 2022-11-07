@@ -9,7 +9,7 @@ Please run the following command in your terminal to start an instance of simple
 
 ```
 cd $PROJECT_DIR
-./gradlew startServer
+./gradlew startServer --console=plain
 ```
 
 NOTE: This application runs on port 6789 by default. You can change this port in class ```Server```.
